@@ -6,7 +6,7 @@ import { createReducer } from '@reduxjs/toolkit';
 //console.log(actions.addTodo.type)
 
 const contacts = createReducer([], {
-    [actions.addTodo]: (state, { payload }) => [...state, payload],
+    'addContactSuccess': (state, { payload }) => [...state, payload],
     [actions.deleteTodo]: (state, { payload }) => state.filter(({ id }) => id !== payload)
 });
 
