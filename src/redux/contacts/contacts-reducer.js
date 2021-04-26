@@ -59,9 +59,11 @@ const filter = createReducer('', {
 //     }
 //  }
 
+
     //описали редьюсер
 export default combineReducers({
     contacts,
     filter,
     loading,
+ 
 })

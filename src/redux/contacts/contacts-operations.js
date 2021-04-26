@@ -3,7 +3,6 @@ import {
     addContactRequest,
     addContactSuccess,
     addContactError,
-    // deleteTodo,
     changeFilter,
     deleteContactRequest,
     deleteContactSuccess,
