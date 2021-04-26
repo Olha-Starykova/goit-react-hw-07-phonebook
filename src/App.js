@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div>
         <h1>Phonebook</h1>
-        
+        {this.props.isLoading && <h1>...Loading</h1>}
         <ContactForm />
         <h2>Contacts</h2>
         
@@ -28,8 +28,13 @@ class App extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  isLoading: state.contacts.loading,
+})
+
 const mapDispatchToProps = dispatch => ({
 fetchTodos: ()=>dispatch(contactsOperations.fetchTodos())
 })
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
