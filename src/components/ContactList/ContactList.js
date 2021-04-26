@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 import './ContactList.css'
 import { connect } from 'react-redux'
-import contactsActions from '../../redux/contacts/contacts-actions'
+import * as contactsActions from '../../redux/contacts/contacts-actions'
 
 const ContactList = (({ contacts, onDeleteTodo }) =>
     <ul className="TodoList">

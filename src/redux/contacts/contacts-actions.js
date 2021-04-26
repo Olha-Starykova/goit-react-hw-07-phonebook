@@ -1,21 +1,11 @@
 //import types from './contacts-types'
 //import shortid from 'shortid';
 import { createAction } from '@reduxjs/toolkit';
-import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3000'
+export const addContactRequest = createAction('contacts/addContactRequest');
+export const addContactSuccess = createAction('contacts/addContactSuccess');
+export const addContactError = createAction('contacts/addContactError');
 
-const addTodo = (name, number) => dispatch => {
-    const contacts = { name, number}
-    
-    dispatch({type: 'contacts/addContactRequest'})
-
-    axios
-        .post('/contacts', contacts)
-        .then(({ data }) =>
-            dispatch({ type: 'contacts/addContactSuccess', payload: data }))
-        .catch(error => dispatch({ type: 'contacts/addContactError', payload: error }))
-}
 
 
 // const addTodo = createAction('contacts/add', (name, number) => {
@@ -37,18 +27,24 @@ const addTodo = (name, number) => dispatch => {
 //     }
 // });
 
-const deleteTodo = createAction('contacts/delete')
+export const deleteTodo = createAction('contacts/delete')
 
 // const deleteTodo = contactId => ({
 //     type: types.DELETE,
 //     payload: contactId
 // })
 
-const changeFilter = createAction('contacts/changeFilter')
+export const changeFilter = createAction('contacts/changeFilter')
 
 // const changeFilter = value => ({
 //     type: types.CHANGE_FILTER,
 //     payload: value
 // })
 
-export default { addTodo, deleteTodo, changeFilter };
+// export default {
+//     addContactRequest,
+//     addContactSuccess,
+//     addContactError,
+//     deleteTodo,
+//     changeFilter
+// };
