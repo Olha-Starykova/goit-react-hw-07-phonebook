@@ -1,25 +1,35 @@
-import React  from 'react';
+import React, { Component } from 'react';
 import ContactForm from './components/ContactForm/ContactForm';
 import ContactList from './components/ContactList/ContactList';
 import Filter from './components/Filter/Filter';
+import { connect } from 'react-redux';
+import contactsOperations from './redux/contacts/contacts-operations'
 
+class App extends Component {
 
-
-const App = () => (
-
-  <div>
-    <h1>Phonebook</h1>
+  componentDidMount() {
+    this.props.fetchTodos();
+  }
+  // const App = () => (
+  render() {
+    return (
+      <div>
+        <h1>Phonebook</h1>
         
-    <ContactForm />
-    <h2>Contacts</h2>
+        <ContactForm />
+        <h2>Contacts</h2>
         
-    <Filter />
+        <Filter />
      
-    <ContactList />
-  </div>
+        <ContactList />
+      </div>
 
  
-);
+    );
+  }
+}
+const mapDispatchToProps = dispatch => ({
+fetchTodos: ()=>dispatch(contactsOperations.fetchTodos())
+})
 
-
-export default App;
+export default connect(null, mapDispatchToProps)(App);

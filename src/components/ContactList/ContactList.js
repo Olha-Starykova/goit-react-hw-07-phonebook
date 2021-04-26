@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 import './ContactList.css'
 import { connect } from 'react-redux'
-import * as contactsActions from '../../redux/contacts/contacts-actions'
+import  contactsOperations from '../../redux/contacts/contacts-operations'
 
 const ContactList = (({ contacts, onDeleteTodo }) =>
     <ul className="TodoList">
@@ -35,7 +35,7 @@ const mapStateToProps = state => {
 
 
 const mapDispatchToProps = dispatch => ({
-    onDeleteTodo: (id) => dispatch(contactsActions.deleteTodo(id))
+    onDeleteTodo: (id) => dispatch(contactsOperations.deleteTodo(id))
 })
 
 

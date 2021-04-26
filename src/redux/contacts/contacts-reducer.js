@@ -1,20 +1,38 @@
 import { combineReducers } from "redux"
 //import types from './contacts-types'
-import {addContactRequest, addContactSuccess, addContactError, deleteTodo, changeFilter} from './contacts-actions'
+import {
+    addContactRequest,
+    addContactSuccess,
+    addContactError,
+    changeFilter,
+    deleteContactRequest,
+    deleteContactSuccess,
+    deleteContactError,
+    fetchContactRequest,
+    fetchContactSuccess,
+    fetchContactError,
+} from './contacts-actions'
 import { createReducer } from '@reduxjs/toolkit';
 
 
 //console.log(actions.addTodo.type)
 
 const contacts = createReducer([], {
+    [fetchContactSuccess]: (_, { payload }) =>  payload,
     [addContactSuccess]: (state, { payload }) => [...state, payload],
-    [deleteTodo]: (state, { payload }) => state.filter(({ id }) => id !== payload)
+    [deleteContactSuccess]: (state, { payload }) => state.filter(({ id }) => id !== payload)
 });
 
 const loading = createReducer(false, {
+    [fetchContactRequest]: () => true,
+    [fetchContactSuccess]: () => false,
+    [fetchContactError]: () => false,
     [addContactRequest]: () => true,
     [addContactSuccess]: () => false,
     [addContactError]: () => false,
+    [deleteContactRequest]: () => true,
+    [deleteContactSuccess]: () => false,
+    [deleteContactError]: () => false,
 });
  
 const filter = createReducer('', {
