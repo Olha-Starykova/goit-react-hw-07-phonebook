@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import './ContactList.css'
 import { connect } from 'react-redux'
 import  contactsOperations from '../../redux/contacts/contacts-operations'
+import contactsSelectors from '../../redux/contacts/contacts-selectors'
+
 
 const ContactList = (({ contacts, onDeleteTodo }) =>
     <ul className="TodoList">
@@ -16,22 +18,9 @@ const ContactList = (({ contacts, onDeleteTodo }) =>
 );
 
   
-  const getVisibleTodos = (allTodos, filter) => {
-
-    const normalizedFilter = filter.toLowerCase();
-
-      return allTodos.filter(contact =>
-          contact.name.toLowerCase().includes(normalizedFilter),
-      );
-  };
-
-const mapStateToProps = state => {
-    const { filter, contacts } = state.contacts;
-    const visibleTodos = getVisibleTodos(contacts, filter)
-    return {
-        contacts: visibleTodos,
-    };
-}
+const mapStateToProps = state => ({
+    contacts: contactsSelectors.getVisibleTodos(state)
+})
 
 
 const mapDispatchToProps = dispatch => ({

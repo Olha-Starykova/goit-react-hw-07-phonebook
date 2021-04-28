@@ -5,6 +5,7 @@ import shortid from 'shortid';
 import './ContactForm.css'
 import { connect } from 'react-redux'
 import contactsOperations from '../../redux/contacts/contacts-operations'
+import contactsSelectors from '../../redux/contacts/contacts-selectors'
 
   
 
@@ -87,7 +88,8 @@ class ContactForm extends Component {
 
 
 const mapStateToProps = state => {
- return {contacts: state.contacts.contacts}
+//  return {contacts: state.contacts.contacts}
+   return {contacts: contactsSelectors.getContactsFrom(state) }
   }
 
 
