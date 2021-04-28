@@ -13,6 +13,7 @@ const getAllTodos = state => state.contacts.contacts
 //         contact.name.toLowerCase().includes(normalizedFilter),
 //     );
 // };
+
 //предаем от чего зависит мемонизация для кеширования аргументов
 const getVisibleTodos = createSelector(
     [getAllTodos, getFilter],

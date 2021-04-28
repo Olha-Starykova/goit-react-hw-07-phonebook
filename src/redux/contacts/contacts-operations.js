@@ -3,7 +3,7 @@ import {
     addContactRequest,
     addContactSuccess,
     addContactError,
-    changeFilter,
+    // changeFilter,
     deleteContactRequest,
     deleteContactSuccess,
     deleteContactError,
@@ -47,19 +47,14 @@ const addTodo = (name, number) => async dispatch => {
 };
 
 
-const deleteTodo = contactId => async dispatch => {
+const deleteTodo = contactId =>  dispatch => {
     dispatch(deleteContactRequest())
 
-    try {
-        const { data } = await axios.delete(`/contacts/${contactId}`)
-        dispatch(deleteContactSuccess(contactId))
-    } catch (error) {
-        dispatch(deleteContactError(error))
-    }
-    // axios
-    //     .delete(`/contacts/${contactId}`)
-    //     .then(() => dispatch(deleteContactSuccess(contactId)))
-    //     .catch(error => dispatch(deleteContactError(error)));
+      axios
+        .delete(`/contacts/${contactId}`)
+        .then(() => dispatch(deleteContactSuccess(contactId)))
+        .catch(error => dispatch(deleteContactError(error)));
+
 };
     
 

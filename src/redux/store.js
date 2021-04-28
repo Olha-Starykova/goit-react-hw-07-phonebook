@@ -12,7 +12,7 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist'
-import storage from 'redux-persist/lib/storage' 
+// import storage from 'redux-persist/lib/storage' 
 import contactsReduser from './contacts/contacts-reducer'
 
 // const rootReducer = combineReducers({
