@@ -65,5 +65,4 @@ export default combineReducers({
     contacts,
     filter,
     loading,
- 
-})
+ })
