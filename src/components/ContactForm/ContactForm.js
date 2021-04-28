@@ -89,7 +89,7 @@ class ContactForm extends Component {
 
 const mapStateToProps = state => {
 //  return {contacts: state.contacts.contacts}
-   return {contacts: contactsSelectors.getContactsFrom(state) }
+   return {contacts: contactsSelectors.getAllTodos(state) }
   }
 
 
